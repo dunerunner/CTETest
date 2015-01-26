@@ -1,0 +1,543 @@
+/* RESET CSS */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Variables */
+
+
+@mainFont: Arial;
+@mainFontSize: 14;
+
+@mainColor: #fff;
+@secondaryColor:#ccc;
+/* Mixins */
+
+.clearfix() {
+    &:after{
+        clear: both;
+        content: "";
+        display: block;
+    }
+}
+
+/* Page Layout */
+body {
+    position:relative;
+    min-height:100vh;
+    box-sizing:border-box;
+    font:unit(@mainFontSize, px)/unit((2 + @mainFontSize), px) @mainFont;
+    color:@mainColor;
+    background:url(../img/bg.jpg) no-repeat;
+    background-size:100% 100%;
+}
+.b {
+    &-header {
+        position:relative;
+        top:0;
+        left:0;
+        right:0;
+        height:80px;
+        z-index:100;
+        &__balance {
+            height:40px;
+            line-height:40px;
+            text-align:center;
+        }
+        &__buttons {
+            .clearfix();
+        }
+    }
+    &-balance {
+        margin:0 1px;
+        border:1px solid @mainColor;
+        border-radius:3px;
+        padding:2px 15px;
+        line-height:100%;
+        background:rgba(0,0,0,0.5);
+    }
+    &-button {
+        display:block;
+        width:35px;
+        height:40px;
+        border:1px solid @mainColor;
+        border-radius:4px;
+        font-size:25px;
+        line-height:40px;
+        text-align:center;
+        color:@mainColor;
+        background:rgba(0,0,0,0.5);
+        &.home {
+            float:left;
+        }
+        &.list {
+            float:right;
+        }
+    }
+    &-game-area {
+        position:relative;
+        z-index:50;
+        top:-50px;
+        height:275px;
+        width:100%;
+        background:url(../img/slot_field.png) no-repeat;
+        background-size:100% 100%;
+    }
+    &-slots {
+        position:absolute;
+        left:8%;
+        right:8%;
+        bottom:20px;
+        height:165px;
+        &__column {
+            display:inline-block;
+            float:left;
+            height:100%;
+            width:20%;
+        }
+    }
+    &-slot-item {
+        /*width:58px;*/
+        height:33.3333%;
+    }
+    &-game-controls {
+        position:absolute;
+        left:0;
+        right:0;
+        bottom:20px;
+        z-index:150;
+    }
+
+    &-control {
+        display:block;
+        font-size:0.9em;
+        color:@secondaryColor;
+        text-decoration:none;
+        & span:before{
+            content: '\a' ; 
+            white-space: pre;  
+        }
+    }
+    &-green {
+        text-shadow: 0 0 5px green;
+    }
+    &-spin {
+        height:100%;
+        & .b-control {
+            overflow:hidden;
+            height:90%;
+            margin:10% 0 0 0;
+            border-radius:100%;
+            background:url(../img/controls.png) no-repeat 6px -342px;
+            background-size:350%;
+        }
+    }
+    &-debug {
+        position:absolute;
+        bottom:5px;
+        left:5px;
+        z-index:50;
+    }
+}
+.s01 {
+    background:url(../img/s01-1.png) no-repeat;
+    background-size:100%;
+}
+.s02 {
+    background:url(../img/s02-1.png) no-repeat;
+    background-size:100%;
+}
+.s03 {
+    background:url(../img/s03-1.png) no-repeat;
+    background-size:100%;
+}
+.s04 {
+    background:url(../img/s04-1.png) no-repeat;
+    background-size:100%;
+}
+.s05 {
+    background:url(../img/s05-1.png) no-repeat;
+    background-size:100%;
+}
+.s06 {
+    background:url(../img/s06-1.png) no-repeat;
+    background-size:100%;
+}
+.s07 {
+    background:url(../img/s07-1.png) no-repeat;
+    background-size:100%;
+}
+.s08 {
+    background:url(../img/s08-1.png) no-repeat;
+    background-size:100%;
+}
+.s09 {
+    background:url(../img/s09-1.png) no-repeat;
+    background-size:100%;
+}
+.s10 {
+    background:url(../img/s10-1.png) no-repeat;
+    background-size:100%;
+}
+@media screen and (orientation:portrait) {
+    .b-controls {
+        height:134px;
+        width:250px;
+        margin:auto;
+        &__primary {
+            height:83px;
+            background:url(../img/controls.png) no-repeat 0px -50px;
+            background-size:100%;
+            & li {
+                display:inline-block;
+                width:33.3333%;
+                float:left;
+                line-height:83px;
+                text-align:center;
+            }
+        }
+        &__secondary {
+            display:table;
+            height:50px;
+            width:100%;
+            background:url(../img/controls.png) no-repeat;
+            background-size:100%;
+            & li {
+                display:table-cell;
+                height:100%;
+                width:33.3333%;
+                vertical-align:middle;
+                text-align:center;
+            }
+        }
+    }
+    @media (min-height:600px) {
+        .b-game-area {
+            position:relative;
+            top:-8px;
+            height:350px;
+
+        }
+        .b-slots {
+            height:210px;
+        }
+    }
+    @media (min-height:900px) {
+        .b-header {
+            height:150px;
+            &__balance {
+                height:75px;
+                line-height:75px;
+            }
+        }
+        .b-balance {
+            font-size:1.5em;
+            line-height:1em;
+        }
+        .b-button {
+            width:55px;
+            height:65px;
+            font-size:2.5em;
+            line-height:65px;
+        }
+        .b-game-area {
+            position:relative;
+            top:-8px;
+            height:501px;
+
+        }
+        .b-slots {
+            height:320px;
+            bottom:22px;
+        }
+        .b-controls {
+            height: 230px;
+            width: 430px;
+            &__primary {
+                height:142px;
+                background:url(../img/controls.png) no-repeat 0px -90px;
+                background-size:100%;
+                & li {
+                    line-height:135px;
+                }
+            }
+            &__secondary {
+                height:90px;
+            }
+        }
+        .b-control {
+            font-size:1.5em;
+            & span {
+                display:block;
+            }
+        }
+        .b-spin {
+            & .b-control {
+                background: url(../img/controls.png) no-repeat 10px -587px;
+                background-size:350%;
+            }
+        }
+        .b-debug {
+            width:100px;
+            height:50px;
+        }
+    }
+}
+@media screen and (orientation:landscape) {
+    section {
+        position:absolute;
+    }
+    .b-game-area {
+        position:absolute;
+        top:0px;
+        bottom:0px;
+        height:auto;
+        background: url(../img/slot_field.png) no-repeat 0px -35px;
+        background-size: 100% 350px;
+    }
+    .b-slots {
+        height: 215px;
+        bottom: 29px;
+        left: 11%;
+        right: 11%;
+    }
+    .b-game-controls {
+        top:90px;
+        bottom:0;
+    }
+    .b-controls {
+        width:100%;
+        &__primary {
+            float: right;
+            height: 210px;
+            width: 92px;
+            background: url(../img/controls.png) no-repeat -172px -129px;
+            background-size: 264px 346px;
+            & li {
+                line-height:48px;
+                text-align:center;
+                & .b-menuarrow {
+                    position:relative;
+                    width:20px;
+                    height:38px;
+                    margin:auto;
+                    &.rightarrow {
+                        background: url(../img/controls.png) no-repeat -73px -536px;
+                        background-size: 307px 600px;
+                    }
+                }
+            }
+        }
+        &__secondary {
+            float:left;
+            width:92px;
+            height:180px;
+            background: url(../img/controls.png) no-repeat -78px -129px;
+            background-size: 264px 346px;
+            & li {
+                position:relative;
+                width:100%;
+                height:48px;
+                text-align:center;
+                & .b-control {
+                    margin:3px 0 0 0;
+                    line-height:45px;
+                    &.doubleline{
+                        line-height:14px;
+                        position:absolute;
+                        top:0;
+                        left:0;
+                        right:0;
+                        bottom:0;
+                        display:block;
+                        width:100px;
+                        height:30px;
+                        margin:auto;
+                    }
+                }
+                & .b-menuarrow {
+                    position:relative;
+                    top:0px;
+                    width:20px;
+                    height:40px;
+                    margin:auto;
+                    &.leftarrow {
+                        background: url(../img/controls.png) no-repeat -78px -566px;
+                        background-size: 307px 600px;
+                    }
+                }
+            }
+        }
+    }
+    .b-spin {
+        height:65px;
+        & .b-control {
+            overflow:hidden;
+            height:60px;
+            width:60px;
+            margin:auto;
+            margin-top:10px;
+            border-radius:100%;
+            background: url(../img/controls.png) no-repeat -9px -321px;
+            background-size: 300px 400px;
+        }
+    }
+    @media (min-width:600px) {
+        .b-game-area {
+            background: url(../img/slot_field.png) no-repeat 0px -35px;
+            background-size: 100% 380px;
+        }
+        .b-slots {
+            height: 235px;
+            bottom: 40px;
+            left: 14%;
+            right: 14%;
+            &__column {
+                box-sizing: border-box;
+                padding: 0 5px;
+            }
+        }
+        .b-controls {
+            &__primary {
+                height: 230px;
+                width: 110px;
+                background: url(../img/controls.png) no-repeat -205px -140px;
+                background-size: 315px 380px;
+                & li {
+                    line-height:58px;
+                }
+            }
+            &__secondary {
+                height: 197px;
+                width: 110px;
+                background: url(../img/controls.png) no-repeat -93px -142px;
+                background-size: 315px 380px;
+                & li {
+                    height:52px;
+                }
+            }
+        }
+    }
+    @media (min-width:900px) {
+        .b-game-area {
+            background: url(../img/slot_field.png) no-repeat 0px -54px;
+            background-size: 100% 650px;
+        }
+        .b-slots {
+            height: 408px;
+            bottom: 48px;
+            left: 11%;
+            right: 11%;
+        }
+        .b-control {
+            font-size:1.5em;
+        }
+        .b-controls {
+            &__primary {
+                height: 450px;
+                width: 173px;
+                background: url(../img/controls.png) no-repeat -327px -275px;
+                background-size: 500px 743px;
+                & li {
+                    line-height:120px;
+                    & .b-menuarrow {
+                        position:relative;
+                        top:10px;
+                        width:20px;
+                        height:37px;
+                        margin:auto;
+                    }
+                }
+            }
+            &__secondary {
+                height: 388px;
+                width: 173px;
+                background: url(../img/controls.png) no-repeat -149px -275px;
+                background-size: 500px 743px;
+                & li {
+                    height:104px;
+                    & .b-control {
+                        margin:3px 0 0 0;
+                        line-height:115px;
+                        &.doubleline{
+                            line-height:0.6em;
+                            width:100px;
+                            height:40px;
+                            margin:auto;
+                            & span {
+                                display:block;
+                            }
+                        }
+                    }
+                    & .b-menuarrow {
+                        position:relative;
+                        top:15px;
+                        width:20px;
+                        height:40px;
+                        margin:auto;
+                        &.leftarrow {
+                            background: url(../img/controls.png) no-repeat -78px -566px;
+                            background-size: 307px 600px;
+                        }
+                    }
+                }
+            }
+        }
+        .b-spin {
+            height:130px;
+            box-sizing:border-box;
+            margin:0 0 10px 0;
+            padding:20px 0 0 0;
+            & .b-control {
+                overflow:hidden;
+                height:90px;
+                width:90px;
+                margin:auto;
+                border-radius:100%;
+                background: url(../img/controls.png) no-repeat -11px -492px;
+                background-size: 430px 614px;
+            }
+        }
+    }
+}
